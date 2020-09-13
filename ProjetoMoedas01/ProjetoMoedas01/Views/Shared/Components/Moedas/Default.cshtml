@@ -1,0 +1,22 @@
+﻿@model IList<ProjetoMoedas01.Models.Moedas>
+
+@{
+    ViewData["Title"] = "Default";
+}
+
+<h3>Escolha seu voto</h3>
+
+<form asp-controller="Moedas" asp-action="EscolhaVoto" method="post">
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        <input asp-for="@Model[i].CheckboxPreenchido" type="checkbox" />
+        <label asp-for="@Model[i].Nome">@Model[i].Nome</label>
+
+        <input asp-for="@Model[i].MoedaID" type="hidden" />
+        <input asp-for="@Model[i].Nome" type="hidden" />
+
+        <br />
+    }
+    <button class="btn btn-outline-primary">Cadastrar</button>
+
+</form>

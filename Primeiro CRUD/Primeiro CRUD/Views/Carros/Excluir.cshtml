@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Excluir";
+}
+
+@model Primeiro_CRUD.Models.Carro
+
+<h1>Detalhes</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <strong>Carro:</strong> @Model.Nome
+</div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>Marca:</strong> @Model.Marca
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>Ano:</strong> @Model.Ano
+        </div>
+    </div>
+
+    <form asp-action="Excluir">
+        <input type="hidden" value="@Model.CarroId" />
+        <input class="btn btn-danger" type="submit" value="Excluir" />
+    </form>
+</div>
+

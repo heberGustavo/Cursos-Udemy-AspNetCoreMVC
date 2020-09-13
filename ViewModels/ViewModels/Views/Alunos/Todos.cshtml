@@ -1,0 +1,22 @@
+﻿@model ViewModels.ViewModels.TodosViewModel;
+
+@{
+    ViewData["Title"] = "Todos";
+}
+
+<h3>Todos alunos</h3>
+<div class="alert alert-info">
+    @foreach (var item in Model.Alunos)
+    {
+        <p>@item.Nome</p>
+    }
+</div>
+<hr />
+<h3>Todas matérias</h3>
+<div class="alert alert-info">
+    @foreach (var item in Model.Materias)
+    {
+        <p>@item.Nome</p>
+    }
+</div>
+

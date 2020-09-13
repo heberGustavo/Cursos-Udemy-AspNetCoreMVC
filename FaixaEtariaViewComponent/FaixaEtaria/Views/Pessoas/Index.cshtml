@@ -1,0 +1,46 @@
+﻿@model IEnumerable<FaixaEtaria.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<h1>Lista de Clientes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Adicionar Cliente</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PessoaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PessoaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PessoaId">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@await Component.InvokeAsync("Adolescente")
+@await Component.InvokeAsync("Adulto")
+@await Component.InvokeAsync("Idoso")
